@@ -14,7 +14,7 @@ TEST(Zoreev_Mikhail_ComplexNumberTest, Multiplication_On_Pair_Give_Zero_Im) {
     ComplexNumber pair_number(re_2, im_2);
 
     ComplexNumber result = number * pair_number;
-    
+
     ASSERT_DOUBLE_EQ(result.getIm(), 0.0);
 }
 
@@ -40,14 +40,15 @@ TEST(Zoreev_Mikhail_ComplexNumberTest, Summ_With_Opposite_Give_Zero) {
     ComplexNumber opposite_number(re_2, im_2);
 
     ComplexNumber result = number + opposite_number;
-    
+
     ASSERT_DOUBLE_EQ(result.getRe(), 0.0);
     ASSERT_DOUBLE_EQ(result.getIm(), 0.0);
 }
 
 typedef testing::TestWithParam<std::tuple<double, double, double, double>>
         Zoreev_Mikhail_ComplexNumberTest_Parametrized;
-TEST_P(Zoreev_Mikhail_ComplexNumberTest_Parametrized, Equality_Is_Opposite_To_Inequality) {
+TEST_P(Zoreev_Mikhail_ComplexNumberTest_Parametrized,
+       Equality_Is_Opposite_To_Inequality) {
     double re_1 = std::get<0>(GetParam());
     double im_1 = std::get<1>(GetParam());
     double re_2 = std::get<2>(GetParam());
@@ -61,7 +62,8 @@ TEST_P(Zoreev_Mikhail_ComplexNumberTest_Parametrized, Equality_Is_Opposite_To_In
     ASSERT_NE(is_equal, is_not_equal);
 }
 
-INSTANTIATE_TEST_CASE_P(/**/, Zoreev_Mikhail_ComplexNumberTest_Parametrized, testing::Combine(
+INSTANTIATE_TEST_CASE_P(/**/, Zoreev_Mikhail_ComplexNumberTest_Parametrized,
+    testing::Combine(
   testing::Values(5.0, 3.0, 5.0, 3.0),
   testing::Values(0.0, 7.0, 4.0, 8.0),
   testing::Values(2.0, 6.0, 7.0, 1.0),
