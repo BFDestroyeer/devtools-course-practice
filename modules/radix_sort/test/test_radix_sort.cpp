@@ -66,9 +66,7 @@ TEST(RadixSort_Test, Test_Sort_Reverse_Sorted) {
 }
 
 TEST(RadixSort_Test, Test_Can_Get_Random_Empty_Vector) {
-    size_t size = 0;
-
-    ASSERT_NO_THROW(RadixSort::getRandomVector<int32_t>(size));
+    ASSERT_NO_THROW(RadixSort::getRandomVector<int32_t>(0));
 }
 
 TEST(RadixSort_Test, Test_Can_Get_Random_Vector) {
