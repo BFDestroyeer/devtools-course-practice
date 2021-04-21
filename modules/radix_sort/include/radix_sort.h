@@ -7,6 +7,7 @@
 #include <limits>
 #include <random>
 #include <stdexcept>
+#include <type_traits>
 #include <vector>
 
 namespace RadixSort {
@@ -19,7 +20,8 @@ namespace RadixSort {
     void radixSort(typename std::vector<ElementType>::iterator begin,
                    typename std::vector<ElementType>::iterator end) {
         assert(begin < end);
-        assert(std::is_integral<ElementType>());
+        static_assert(std::is_integral<ElementType>::value,
+                "ElementType must be integral");
 
         std::vector<ElementType> temp(std::distance(begin, end));
         for (size_t i = 0; i < sizeof(ElementType); i++) {
@@ -29,7 +31,7 @@ namespace RadixSort {
             }
             size_t offset[256] = {};
             if ((i != sizeof(ElementType) - 1) ||
-                (!std::is_signed<ElementType>::value)) {
+                !std::is_signed<ElementType>::value) {
                 for (size_t j = 1; j < 256; j++) {
                     offset[j] = offset[j - 1] + count[j - 1];
                 }
