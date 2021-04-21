@@ -4,6 +4,7 @@
 #define MODULES_RADIX_SORT_INCLUDE_RADIX_SORT_H_
 
 #include <algorithm>
+#include <iterator>
 #include <limits>
 #include <random>
 #include <stdexcept>
