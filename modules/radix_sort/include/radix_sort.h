@@ -25,7 +25,8 @@ namespace RadixSort {
                 count[*((unsigned char*) &*j + i)]++;
             }
             size_t offset[256] = {};
-            if ((i != sizeof(ElementType) - 1) || (!std::is_signed<ElementType>::value)) {
+            if ((i != sizeof(ElementType) - 1) ||
+                (!std::is_signed<ElementType>::value)) {
                 for (size_t j = 1; j < 256; j++) {
                     offset[j] = offset[j - 1] + count[j - 1];
                 }
@@ -49,8 +50,9 @@ namespace RadixSort {
     std::vector<ElementType> getRandomVector(size_t size) {
         std::random_device random_device;
         std::mt19937 generator(random_device());
-        std::uniform_int_distribution<ElementType> distribution(std::numeric_limits<ElementType>::min(),
-                                                                std::numeric_limits<ElementType>::max());
+        std::uniform_int_distribution<ElementType>
+                distribution(std::numeric_limits<ElementType>::min(),
+                             std::numeric_limits<ElementType>::max());
         std::vector<ElementType> result(size);
 
         for (size_t i = 0; i < size; i++) {
@@ -60,4 +62,4 @@ namespace RadixSort {
     }
 }  // namespace RadixSort
 
-#endif //MODULES_RADIX_SORT_INCLUDE_RADIX_SORT_H_
+#endif  //MODULES_RADIX_SORT_INCLUDE_RADIX_SORT_H_
