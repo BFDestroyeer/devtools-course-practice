@@ -3,9 +3,11 @@
 #ifndef MODULES_RADIX_SORT_INCLUDE_RADIX_SORT_H_
 #define MODULES_RADIX_SORT_INCLUDE_RADIX_SORT_H_
 
-#include <vector>
+#include <algorithm>
+#include <limits>
 #include <random>
 #include <stdexcept>
+#include <vector>
 
 namespace RadixSort {
     /**
@@ -14,7 +16,8 @@ namespace RadixSort {
      * @param end Iterator to end element
      */
     template <typename ElementType>
-    void radixSort(typename std::vector<ElementType>::iterator begin, typename std::vector<ElementType>::iterator end) {
+    void radixSort(typename std::vector<ElementType>::iterator begin,
+                   typename std::vector<ElementType>::iterator end) {
         assert(begin < end);
         assert(std::is_integral<ElementType>());
 
@@ -62,4 +65,4 @@ namespace RadixSort {
     }
 }  // namespace RadixSort
 
-#endif  //MODULES_RADIX_SORT_INCLUDE_RADIX_SORT_H_
+#endif  // MODULES_RADIX_SORT_INCLUDE_RADIX_SORT_H_
