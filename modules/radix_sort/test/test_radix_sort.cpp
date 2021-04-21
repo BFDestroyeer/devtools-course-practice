@@ -55,7 +55,8 @@ TEST(RadixSort_Test, Test_Sort_Sorted) {
 TEST(RadixSort_Test, Test_Sort_Reverse_Sorted) {
     size_t size = 11;
     auto vector_radix = RadixSort::getRandomVector<int32_t>(size);
-    std::sort(vector_radix.begin(), vector_radix.end(), [](const int32_t &a, const int32_t &b){ return a > b; });
+    std::sort(vector_radix.begin(), vector_radix.end(),
+              [](const int32_t &a, const int32_t &b){ return a > b; });
     auto vector_std = vector_radix;
 
     RadixSort::radixSort<int32_t>(vector_radix.begin(), vector_radix.end());
