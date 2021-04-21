@@ -14,8 +14,18 @@ namespace RadixSort {
                 count[*((unsigned char*) &*j + i)]++;
             }
             size_t offset[256] = {};
-            for (size_t j = 1; j < 256; j++) {
-                offset[j] = offset[j - 1] + count[j - 1];
+            if (i != sizeof(int64_t) - 1) {
+                for (size_t j = 1; j < 256; j++) {
+                    offset[j] = offset[j - 1] + count[j - 1];
+                }
+            } else {
+                for (size_t j = 129; j < 256; j++) {
+                    offset[j] = offset[j - 1] + count[j - 1];
+                }
+                offset[0] = offset[255] + count[255];
+                for (size_t j = 1; j < 128; j++) {
+                    offset[j] = offset[j - 1] + count[j - 1];
+                }
             }
             for (auto j = begin; j < end; j++) {
                 temp[offset[*((unsigned char*) &*j + i)]++] = *j;
