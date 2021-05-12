@@ -15,6 +15,22 @@ TEST(Binary_Search_Test, IntSearch) {
     ASSERT_EQ(3, result);
 }
 
+TEST(Binary_Search_Test, IntSearchInLeftHalf) {
+    std::vector<int> array = {
+            -3, -2, -1, 0, 1, 2, 3
+    };
+    int result = BinarySearch::Search<int>(-2, array, 0, array.size() - 1);
+    ASSERT_EQ(3, result);
+}
+
+TEST(Binary_Search_Test, IntSearchInRightHalf) {
+    std::vector<int> array = {
+            -3, -2, -1, 0, 1, 2, 3
+    };
+    int result = BinarySearch::Search<int>(2, array, 0, array.size() - 1);
+    ASSERT_EQ(3, result);
+}
+
 TEST(Binary_Search_Test, DoubleSearch) {
     std::vector<double> array = {
         -3.7, -2.8, -1.9, 0.35, 1.5, 2.89, 3.14

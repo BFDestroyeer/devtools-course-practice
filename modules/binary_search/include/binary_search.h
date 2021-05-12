@@ -19,11 +19,11 @@ namespace BinarySearch {
         bool flag = false;
         while (left <= right && !flag) {
             middle = (left + right) / 2;
-            if (array[middle] == key)
+            if (array[middle] == key) {
                 flag = true;
-            else if (array[middle] > key)
+            } else if (array[middle] > key) {
                 right = middle - 1;
-            else
+            } else
                 left = middle + 1;
         }
         return flag ? middle : -1;
