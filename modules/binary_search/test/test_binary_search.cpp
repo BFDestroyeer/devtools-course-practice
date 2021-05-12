@@ -20,7 +20,7 @@ TEST(Binary_Search_Test, IntSearchInLeftHalf) {
             -3, -2, -1, 0, 1, 2, 3
     };
     int result = BinarySearch::Search<int>(-2, array, 0, array.size() - 1);
-    ASSERT_EQ(3, result);
+    ASSERT_EQ(1, result);
 }
 
 TEST(Binary_Search_Test, IntSearchInRightHalf) {
@@ -28,7 +28,7 @@ TEST(Binary_Search_Test, IntSearchInRightHalf) {
             -3, -2, -1, 0, 1, 2, 3
     };
     int result = BinarySearch::Search<int>(2, array, 0, array.size() - 1);
-    ASSERT_EQ(3, result);
+    ASSERT_EQ(5, result);
 }
 
 TEST(Binary_Search_Test, DoubleSearch) {
