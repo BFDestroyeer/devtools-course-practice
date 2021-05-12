@@ -23,8 +23,9 @@ namespace BinarySearch {
                 flag = true;
             } else if (array[middle] > key) {
                 right = middle - 1;
-            } else
+            } else {
                 left = middle + 1;
+            }
         }
         return flag ? middle : -1;
     }
